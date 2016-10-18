@@ -17,6 +17,7 @@ voice {
 }
 
 repositories {
+    mavenLocal()
     ivy {
         url 'http://mary.dfki.de/repo'
         layout 'maven'
@@ -30,6 +31,7 @@ repositories {
 }
 
 dependencies {
+    compile group: 'de.dfki.mary', name: 'marytts-unitselection', version: '6.0-SNAPSHOT'
     data group: 'org.festvox', name: 'cmu_us_slt_arctic', version: '0.95', classifier: 'release', ext: 'tar.bz2'
 }
 
