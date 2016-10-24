@@ -62,3 +62,13 @@ generateVoiceConfig {
 }
 
 assemble.dependsOn legacyDescriptor
+
+task compileWaveTimeline(type: JavaExec) {
+    dependsOn wav, legacyPraatPitchmarker
+    def wavDir = wav.destDir
+    def pmDir = legacyPraatPitchmarker.destDir
+    def destFile = file("$legacyBuildDir/timeline_waveforms_new.mry")
+    classpath configurations.compile
+    main 'marytts.unitselection.io.Timeline'
+    args wavDir, pmDir, destFile
+}
